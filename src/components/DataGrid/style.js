@@ -50,3 +50,15 @@ export const Header = styled.div`
     }
   }
 `;
+
+export const PaginationContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  height: 100%;
+  align-items: center;
+
+  span {
+    margin-right: 20px;
+  }
+`;
