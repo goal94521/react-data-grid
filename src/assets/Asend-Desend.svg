@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="7px" height="13px" viewBox="0 0 7 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>Asend-Desend</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.5">
+        <g id="grid-label-bar-1024" transform="translate(-113.000000, -19.000000)" fill="#FFFFFF">
+            <g id="Group" transform="translate(111.000000, 15.000000)">
+                <g id="Asend-Desend" transform="translate(0.000000, 1.000000)">
+                    <g id="Group" transform="translate(2.000000, 3.000000)">
+                        <path d="M7,9.14814815 C7,9.27604167 6.95214844,9.39641204 6.87011719,9.48668981 L3.80761719,12.8570602 C3.72558594,12.947338 3.61621094,13 3.5,13 C3.38378906,13 3.27441406,12.947338 3.19238281,12.8570602 L0.129882812,9.48668981 C0.0478515625,9.39641204 0,9.27604167 0,9.14814815 C0,8.88483796 0.198242188,8.66666667 0.4375,8.66666667 L6.5625,8.66666667 C6.80175781,8.66666667 7,8.88483796 7,9.14814815 Z" id="down" fill-rule="nonzero"></path>
+                        <path d="M7,0.481481481 C7,0.609375 6.95214844,0.72974537 6.87011719,0.820023148 L3.80761719,4.19039352 C3.72558594,4.2806713 3.61621094,4.33333333 3.5,4.33333333 C3.38378906,4.33333333 3.27441406,4.2806713 3.19238281,4.19039352 L0.129882812,0.820023148 C0.0478515625,0.72974537 0,0.609375 0,0.481481481 C0,0.218171296 0.198242188,0 0.4375,0 L6.5625,0 C6.80175781,0 7,0.218171296 7,0.481481481 Z" id="up" fill-rule="nonzero" transform="translate(3.500000, 2.166667) rotate(-180.000000) translate(-3.500000, -2.166667) "></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

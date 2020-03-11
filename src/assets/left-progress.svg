@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="10px" height="16px" viewBox="0 0 10 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>left progress</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Grid-Title-Bar" transform="translate(-1228.000000, -33.000000)" fill="#6D7C8B" fill-rule="nonzero">
+            <g id="Icon/left-arrow" transform="translate(1218.000000, 22.000000)">
+                <path d="M22.4275499,21.6687019 L20.8608767,23.049842 C20.6249319,23.2591056 20.2474203,23.2591056 20.0114756,23.049842 L15.0000089,18.6050822 L9.98854231,23.049842 C9.75259755,23.2591056 9.37508594,23.2591056 9.13914118,23.049842 L7.572468,21.6687019 C7.33652324,21.4594383 7.33652324,21.1162459 7.572468,20.9069823 L14.5753084,14.7044079 C14.8112531,14.4951443 15.1887647,14.4951443 15.4247095,14.7044079 L22.4275499,20.9069823 C22.6634946,21.1162459 22.6634946,21.4594383 22.4275499,21.6687019 Z" id="" transform="translate(15.000009, 18.877125) rotate(-90.000000) translate(-15.000009, -18.877125) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

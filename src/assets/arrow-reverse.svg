@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="8px" viewBox="0 0 12 8" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>Icon/down arrow reverse</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="grid-label-bar-1440" transform="translate(-49.000000, -22.000000)" fill="#FFFFFF" fill-rule="nonzero">
+            <g id="Group-10" transform="translate(16.000000, 10.000000)">
+                <g id="Icon/down-arrow-reverse" transform="translate(27.000000, 3.000000)">
+                    <path d="M17.2701027,15.6272305 L16.1584943,16.7321425 C15.9910833,16.8995535 15.7232259,16.8995535 15.555815,16.7321425 L12.0000072,13.1763347 L8.44419934,16.7321425 C8.27678843,16.8995535 8.00893097,16.8995535 7.84152005,16.7321425 L6.72991158,15.6272305 C6.56250067,15.4598196 6.56250067,15.1852657 6.72991158,15.0178548 L11.6986675,10.0557953 C11.8660784,9.88838438 12.1339359,9.88838438 12.3013468,10.0557953 L17.2701027,15.0178548 C17.4375136,15.1852657 17.4375136,15.4598196 17.2701027,15.6272305 Z" id="" transform="translate(12.000007, 13.393969) rotate(180.000000) translate(-12.000007, -13.393969) "></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
