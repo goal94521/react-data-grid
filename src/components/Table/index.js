@@ -1,5 +1,5 @@
-import React from 'react';
-import { Table } from 'semantic-ui-react';
+import React, { useState } from 'react';
+import { Table, Checkbox } from 'semantic-ui-react';
 
 import { StyledTable, StyledTableCell, StyledTableRow } from './style';
 import { ArrowReverse, AscendDescend, CheckBoxOpen, Toggle } from '../Icon';
@@ -74,6 +74,8 @@ const headerRow = [
 ];
 
 const CustomTable = () => {
+  const [selectedRows, selectRow] = useState([]);
+
   return (
     <StyledTable sortable>
       <Table.Header className="custom-table-header">
@@ -82,7 +84,11 @@ const CustomTable = () => {
             maxWidth={61}
             className="custom-cell custom-cell-with-icon first-column header"
           >
-            <CheckBoxOpen />
+            <Checkbox
+              checked={selectedRows.length === tableData.length}
+              className="custom-checkbox"
+              onClick={() => selectRow([...tableData.keys()])}
+            />
             <ArrowReverse />
           </StyledTableCell>
           {headerRow.map(headerCellData => {
@@ -102,7 +108,7 @@ const CustomTable = () => {
       </Table.Header>
 
       <Table.Body>
-        {tableData.map(tableRowData => {
+        {tableData.map((tableRowData, index) => {
           const cellsKeys = Object.keys(tableRowData);
 
           return (
@@ -111,7 +117,21 @@ const CustomTable = () => {
                 maxWidth={61}
                 className="custom-cell custom-cell-with-icon first-column"
               >
-                <CheckBoxOpen />
+                <Checkbox
+                  checked={selectedRows.includes(index)}
+                  className="custom-checkbox"
+                  onClick={() => {
+                    console.log('bhbhbhbh')
+                    if (selectedRows.includes(index)) {
+                      const updatedRows = selectedRows.filter(
+                        value => value !== index
+                      );
+                      selectRow(updatedRows);
+                    } else {
+                      selectRow(prevState => [...prevState, index]);
+                    }
+                  }}
+                />
               </StyledTableCell>
               <StyledTableCell
                 maxWidth={61}
@@ -129,7 +149,7 @@ const CustomTable = () => {
                   id === 'stops' && 'stops',
                   id === 'weight' && 'weight',
                   id === 'mileage' && 'mileage',
-                  id === 'customerRate' && 'customer-rate',
+                  id === 'customerRate' && 'customer-rate'
                 );
 
                 const textClassName = mergeClassNames(

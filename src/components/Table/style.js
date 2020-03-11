@@ -69,6 +69,20 @@ export const StyledTableCell = styled.div`
           }
         }
       }
+
+      .custom-checkbox {
+        width: 22px;
+        height: 22px;
+        border-radius: 3px;
+        border: solid 2px #b6c8d6;
+        
+        label {
+          :before {
+            border: none;
+            background: none;
+          }
+        }
+      }
     }
 
     &.custom-header-table-cell {
