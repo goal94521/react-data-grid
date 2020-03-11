@@ -166,7 +166,7 @@ export const Magnify = () => (
         <g id="Icon">
           <polygon id="Bounding-Box" points="0 0 24 0 24 24 0 24"></polygon>
           <mask id="mask-2" fill="white">
-            <use xlink:href="#path-1"></use>
+            <use></use>
           </mask>
           <use id="mag" fill="#676767" fillRule="nonzero"></use>
           <g id="↳-🎨Color" mask="url(#mask-2)" fill="#6D7C8B">
