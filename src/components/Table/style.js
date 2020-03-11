@@ -1,23 +1,27 @@
 import styled from 'styled-components';
-import { Table } from 'semantic-ui-react';
 
-export const StyledTable = styled(Table)`
+export const StyledTable = styled.div`
   && {
     margin: 0;
-    
+    display: flex;
+    flex-direction: column;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+
     .custom-table-header {
       background: #264259;
     }
   }
 `;
 
-export const StyledTableCell = styled(Table.Cell)`
+export const StyledTableCell = styled.div`
   && {
     &.custom-cell {
       padding: 15px 21px 15px 11px;
       color: ${props => props.color || '#467599'};
-      // max-width: ${props => props.maxWidth}px;
       width: ${props => props.maxWidth}px;
+      min-width: ${props => props.maxWidth}px;
       border-top: none;
 
       &.load-id {
@@ -105,7 +109,7 @@ export const StyledTableCell = styled(Table.Cell)`
   }
 `;
 
-export const StyledTableRow = styled(Table.Row)`
+export const StyledTableRow = styled.div`
   && {
     display: flex;
     align-items: center;

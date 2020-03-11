@@ -41,8 +41,13 @@ export const Header = styled.div`
     .show-filters-button {
       color: #80c17d;
       height: 50px;
-      width: 136px;
       background: #fff;
+      font-size: 18px;
+      font-weight: 600;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
 
       svg {
         margin-left: 10px;
@@ -60,5 +65,16 @@ export const PaginationContainer = styled.div`
 
   span {
     margin-right: 20px;
+  }
+
+  .settings-dropdown {
+    display: flex;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .settings-dropdown-menu {
+    width: 200px;
   }
 `;
