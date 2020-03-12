@@ -1,13 +1,35 @@
 import styled from 'styled-components';
 
+export const Container = styled.div`
+  display: flex;
+  flex-direction: row;
+  max-width: 1820px;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
+`;
+
+export const DynamicTableContainer = styled.div`
+  display: flex;
+  align-items: flex-start;
+  flex: 1;
+  min-width: 700px;
+  overflow: overlay;
+`;
+
 export const StyledTable = styled.div`
   && {
     margin: 0;
     display: flex;
     flex-direction: column;
     border-radius: 6px;
-    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
     background-color: #fff;
+
+    &.sticky-left {
+      border-radius: 6px 0 0 6px;
+    }
+
+    &.dynamic-table {
+      border-radius: 0 6px 6px 0;
+    }
 
     .custom-table-header {
       background: #264259;
@@ -23,6 +45,21 @@ export const StyledTableCell = styled.div`
       width: ${props => props.maxWidth}px;
       min-width: ${props => props.maxWidth}px;
       border-top: none;
+      flex: 1;
+      
+      //:last-child {
+      //  width: unset;
+      //  min-width: unset;
+      //  flex: 1;
+      //}
+      
+      :first-child {
+        paddingleft: 0;
+      }
+      
+      &.toggle {
+        padding: 15px 0 15px 11px;
+      }
 
       &.load-id {
         color: #80c17d;
@@ -75,11 +112,26 @@ export const StyledTableCell = styled.div`
         height: 22px;
         border-radius: 3px;
         border: solid 2px #b6c8d6;
-        
+        background-color: transparent;
+        box-sizing: border-box;
+
+        input:checked ~ label:before {
+          background-color: #467599;
+          color: #fff;
+        }
+
+        input:checked ~ label:after {
+          color: #fff;
+        }
+
         label {
-          :before {
+          color: #467599;
+
+          :before,
+          :after {
             border: none;
-            background: none;
+            background-color: transparent;
+            color: #467599;
           }
         }
       }
@@ -115,7 +167,7 @@ export const StyledTableCell = styled.div`
         padding: 0;
 
         &.header {
-          margin-right: 50px;
+          margin-right: 45px;
           margin-left: 12px;
         }
       }
@@ -128,6 +180,6 @@ export const StyledTableRow = styled.div`
     display: flex;
     align-items: center;
     width: 100%;
-    max-width: 1820px;
+    max-width: 100%;
   }
 `;
