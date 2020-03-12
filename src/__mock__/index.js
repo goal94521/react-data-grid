@@ -43,172 +43,10 @@ export const dynamicTableData = [
     customerRate: { value: 0, width: 142, id: 'customerRate' },
     targetPt: { value: '', width: 108, id: 'targetPt' },
     am: { value: 'Worthington', width: 131, id: 'am' }
-  },
-  {
-    status: { value: 'Rate needed', width: 133, id: 'status', status: 'green' },
-    customer: { value: 'Morton International', width: 195, id: 'customer' },
-    pickRange: { value: '03/22/2019', width: 112, id: 'pickRange' },
-    shipper: { value: 'City Name', width: 127, id: 'shipper' },
-    deliveryRange: { value: '03/22/2019', width: 144, id: 'deliveryRange' },
-    consignee: { value: 'Worthington', width: 145, id: 'consignee' },
-    stops: { value: 2, width: 93, id: 'stops' },
-    weight: { value: 12, width: 94, id: 'weight' },
-    equip: { value: 'V', width: 86, id: 'equip' },
-    mileage: { value: 0, width: 98, id: 'mileage' },
-    customerRate: { value: 0, width: 142, id: 'customerRate' },
-    targetPt: { value: '', width: 108, id: 'targetPt' },
-    am: { value: 'Worthington', width: 131, id: 'am' }
-  },
-  {
-    status: { value: 'Rate needed', width: 133, id: 'status', status: 'red' },
-    customer: { value: 'Morton International', width: 195, id: 'customer' },
-    pickRange: { value: '03/22/2019', width: 112, id: 'pickRange' },
-    shipper: { value: 'City Name', width: 127, id: 'shipper' },
-    deliveryRange: { value: '03/22/2019', width: 144, id: 'deliveryRange' },
-    consignee: { value: 'Worthington', width: 145, id: 'consignee' },
-    stops: { value: 2, width: 93, id: 'stops' },
-    weight: { value: 12, width: 94, id: 'weight' },
-    equip: { value: 'V', width: 86, id: 'equip' },
-    mileage: { value: 0, width: 98, id: 'mileage' },
-    customerRate: { value: 0, width: 142, id: 'customerRate' },
-    targetPt: { value: '', width: 108, id: 'targetPt' },
-    am: { value: 'Worthington', width: 131, id: 'am' }
-  },
-  {
-    status: { value: 'Rate needed', width: 133, id: 'status', status: 'blue' },
-    customer: { value: 'Morton International', width: 195, id: 'customer' },
-    pickRange: { value: '03/22/2019', width: 112, id: 'pickRange' },
-    shipper: { value: 'City Name', width: 127, id: 'shipper' },
-    deliveryRange: { value: '03/22/2019', width: 144, id: 'deliveryRange' },
-    consignee: { value: 'Worthington', width: 145, id: 'consignee' },
-    stops: { value: 2, width: 93, id: 'stops' },
-    weight: { value: 12, width: 94, id: 'weight' },
-    equip: { value: 'V', width: 86, id: 'equip' },
-    mileage: { value: 0, width: 98, id: 'mileage' },
-    customerRate: { value: 0, width: 142, id: 'customerRate' },
-    targetPt: { value: '', width: 108, id: 'targetPt' },
-    am: { value: 'Worthington', width: 131, id: 'am' }
-  },
-  {
-    status: { value: 'Rate needed', width: 133, id: 'status', status: 'green' },
-    customer: { value: 'Morton International', width: 195, id: 'customer' },
-    pickRange: { value: '03/22/2019', width: 112, id: 'pickRange' },
-    shipper: { value: 'City Name', width: 127, id: 'shipper' },
-    deliveryRange: { value: '03/22/2019', width: 144, id: 'deliveryRange' },
-    consignee: { value: 'Worthington', width: 145, id: 'consignee' },
-    stops: { value: 2, width: 93, id: 'stops' },
-    weight: { value: 12, width: 94, id: 'weight' },
-    equip: { value: 'V', width: 86, id: 'equip' },
-    mileage: { value: 0, width: 98, id: 'mileage' },
-    customerRate: { value: 0, width: 142, id: 'customerRate' },
-    targetPt: { value: '', width: 108, id: 'targetPt' },
-    am: { value: 'Worthington', width: 131, id: 'am' }
-  },
-  {
-    status: { value: 'Rate needed', width: 133, id: 'status', status: 'red' },
-    customer: { value: 'Morton International', width: 195, id: 'customer' },
-    pickRange: { value: '03/22/2019', width: 112, id: 'pickRange' },
-    shipper: { value: 'City Name', width: 127, id: 'shipper' },
-    deliveryRange: { value: '03/22/2019', width: 144, id: 'deliveryRange' },
-    consignee: { value: 'Worthington', width: 145, id: 'consignee' },
-    stops: { value: 2, width: 93, id: 'stops' },
-    weight: { value: 12, width: 94, id: 'weight' },
-    equip: { value: 'V', width: 86, id: 'equip' },
-    mileage: { value: 0, width: 98, id: 'mileage' },
-    customerRate: { value: 0, width: 142, id: 'customerRate' },
-    targetPt: { value: '', width: 108, id: 'targetPt' },
-    am: { value: 'Worthington', width: 131, id: 'am' }
-  },
-  {
-    status: { value: 'Rate needed', width: 133, id: 'status', status: 'blue' },
-    customer: { value: 'Morton International', width: 195, id: 'customer' },
-    pickRange: { value: '03/22/2019', width: 112, id: 'pickRange' },
-    shipper: { value: 'City Name', width: 127, id: 'shipper' },
-    deliveryRange: { value: '03/22/2019', width: 144, id: 'deliveryRange' },
-    consignee: { value: 'Worthington', width: 145, id: 'consignee' },
-    stops: { value: 2, width: 93, id: 'stops' },
-    weight: { value: 12, width: 94, id: 'weight' },
-    equip: { value: 'V', width: 86, id: 'equip' },
-    mileage: { value: 0, width: 98, id: 'mileage' },
-    customerRate: { value: 0, width: 142, id: 'customerRate' },
-    targetPt: { value: '', width: 108, id: 'targetPt' },
-    am: { value: 'Worthington', width: 131, id: 'am' }
-  },
-  {
-    status: { value: 'Rate needed', width: 133, id: 'status', status: 'green' },
-    customer: { value: 'Morton International', width: 195, id: 'customer' },
-    pickRange: { value: '03/22/2019', width: 112, id: 'pickRange' },
-    shipper: { value: 'City Name', width: 127, id: 'shipper' },
-    deliveryRange: { value: '03/22/2019', width: 144, id: 'deliveryRange' },
-    consignee: { value: 'Worthington', width: 145, id: 'consignee' },
-    stops: { value: 2, width: 93, id: 'stops' },
-    weight: { value: 12, width: 94, id: 'weight' },
-    equip: { value: 'V', width: 86, id: 'equip' },
-    mileage: { value: 0, width: 98, id: 'mileage' },
-    customerRate: { value: 0, width: 142, id: 'customerRate' },
-    targetPt: { value: '', width: 108, id: 'targetPt' },
-    am: { value: 'Worthington', width: 131, id: 'am' }
-  },
-  {
-    status: { value: 'Rate needed', width: 133, id: 'status', status: 'red' },
-    customer: { value: 'Morton International', width: 195, id: 'customer' },
-    pickRange: { value: '03/22/2019', width: 112, id: 'pickRange' },
-    shipper: { value: 'City Name', width: 127, id: 'shipper' },
-    deliveryRange: { value: '03/22/2019', width: 144, id: 'deliveryRange' },
-    consignee: { value: 'Worthington', width: 145, id: 'consignee' },
-    stops: { value: 2, width: 93, id: 'stops' },
-    weight: { value: 12, width: 94, id: 'weight' },
-    equip: { value: 'V', width: 86, id: 'equip' },
-    mileage: { value: 0, width: 98, id: 'mileage' },
-    customerRate: { value: 0, width: 142, id: 'customerRate' },
-    targetPt: { value: '', width: 108, id: 'targetPt' },
-    am: { value: 'Worthington', width: 131, id: 'am' }
-  },
-  {
-    status: { value: 'Rate needed', width: 133, id: 'status', status: 'blue' },
-    customer: { value: 'Morton International', width: 195, id: 'customer' },
-    pickRange: { value: '03/22/2019', width: 112, id: 'pickRange' },
-    shipper: { value: 'City Name', width: 127, id: 'shipper' },
-    deliveryRange: { value: '03/22/2019', width: 144, id: 'deliveryRange' },
-    consignee: { value: 'Worthington', width: 145, id: 'consignee' },
-    stops: { value: 2, width: 93, id: 'stops' },
-    weight: { value: 12, width: 94, id: 'weight' },
-    equip: { value: 'V', width: 86, id: 'equip' },
-    mileage: { value: 0, width: 98, id: 'mileage' },
-    customerRate: { value: 0, width: 142, id: 'customerRate' },
-    targetPt: { value: '', width: 108, id: 'targetPt' },
-    am: { value: 'Worthington', width: 131, id: 'am' }
-  },
+  }
 ];
 
 export const stickyTableData = [
-  {
-    loadId: { value: '9931AJ2', width: 101, id: 'loadId' }
-  },
-  {
-    loadId: { value: '9931AJ2', width: 101, id: 'loadId' }
-  },
-  {
-    loadId: { value: '9931AJ2', width: 101, id: 'loadId' }
-  },
-  {
-    loadId: { value: '9931AJ2', width: 101, id: 'loadId' }
-  },
-  {
-    loadId: { value: '9931AJ2', width: 101, id: 'loadId' }
-  },
-  {
-    loadId: { value: '9931AJ2', width: 101, id: 'loadId' }
-  },
-  {
-    loadId: { value: '9931AJ2', width: 101, id: 'loadId' }
-  },
-  {
-    loadId: { value: '9931AJ2', width: 101, id: 'loadId' }
-  },
-  {
-    loadId: { value: '9931AJ2', width: 101, id: 'loadId' }
-  },
   {
     loadId: { value: '9931AJ2', width: 101, id: 'loadId' }
   },
@@ -249,7 +87,7 @@ export const dynamicHeaderRow = [
   { value: 'Mileage', width: 94 },
   { value: 'Customer Rate', width: 138 },
   { value: 'Target PT', width: 104 },
-  { value: 'AM', width: 131 }
+  { value: 'AM', width: 111 }
 ];
 
 export const stickyHeaderRow = [{ value: 'Load ID #', width: 101 }];

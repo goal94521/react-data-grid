@@ -12,7 +12,7 @@ export const DynamicTableContainer = styled.div`
   align-items: flex-start;
   flex: 1;
   min-width: 700px;
-  overflow: overlay;
+  overflow-x: overlay;
 `;
 
 export const StyledTable = styled.div`
