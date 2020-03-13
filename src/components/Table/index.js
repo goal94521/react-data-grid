@@ -20,8 +20,13 @@ const CustomTable = ({
 }) => {
   const [selectedRows, selectRow] = useState([]);
 
-  // const currentDynamicRows = dynamicTableData.slice(indexOfFirstTodo, indexOfLastTodo);
-  // const currentStickyRows = stickyTableData.slice(indexOfFirstTodo, indexOfLastTodo);
+  const selectAllRowsHandler = () => {
+    if (selectedRows.length === stickyTableData.length){
+      selectRow([])
+    } else {
+      selectRow([...stickyTableData.keys()])
+    }
+  };
 
   return (
     <Container>
@@ -36,7 +41,7 @@ const CustomTable = ({
               <Checkbox
                 checked={selectedRows.length === stickyTableData.length}
                 className="custom-checkbox"
-                onClick={() => selectRow([...stickyTableData.keys()])}
+                onClick={selectAllRowsHandler}
               />
               <ArrowReverse />
             </StyledTableCell>
