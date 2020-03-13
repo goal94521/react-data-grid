@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  flex: 1;
   display: flex;
   flex-direction: row;
   max-width: 1820px;
@@ -29,10 +30,17 @@ export const StyledTable = styled.div`
 
     &.dynamic-table {
       border-radius: 0 6px 6px 0;
+      flex: 1;
+      
+       //.custom-cell {
+       // width: unset;
+       // min-width: unset;
+       //}
     }
 
     .custom-table-header {
       background: #264259;
+
     }
   }
 `;
@@ -46,6 +54,7 @@ export const StyledTableCell = styled.div`
       min-width: ${props => props.maxWidth}px;
       border-top: none;
       flex: 1;
+      height: 50px;
       
       //:last-child {
       //  width: unset;

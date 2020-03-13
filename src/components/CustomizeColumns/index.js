@@ -1,24 +1,82 @@
-import React from 'react';
-import { Checkbox, List, Select, Button, Icon } from 'semantic-ui-react';
+import React, { useState, useEffect } from 'react';
+import { Select, Button, Icon } from 'semantic-ui-react';
 
 import { Container } from './style';
-import { dynamicHeaderRow } from '../../__mock__';
+import { chunkArray } from '../../utils/arrays';
+import { mergeClassNames } from '../../utils/styles';
 
-const CustomizeColumns = () => {
+const CustomizeColumns = ({
+  wideMode,
+  initialColumnsData,
+  onCloseHandler,
+  onCancelHandler,
+  onApplyHandler
+}) => {
+  const [list, setList] = useState(null);
+
+  useEffect(() => {
+    if (wideMode) {
+      setList(chunkArray(initialColumnsData, 10));
+    } else if (!wideMode) {
+      setList(initialColumnsData);
+    }
+  }, [wideMode, initialColumnsData]);
+
+  const selectClassName = mergeClassNames(
+    'custom-select',
+    wideMode && 'wide-mode'
+  );
+
   return (
     <Container>
-      <Icon name="close" size="big" className="close-icon" />
-      <span className="heading">Customize Columns</span>
-      <List className="list">
-        {dynamicHeaderRow.map(row => (
-          <List.Item className="list-item">
-            <Checkbox className="custom-checkbox" />
-            <span className="item-text">{row.value}</span>
-          </List.Item>
-        ))}
-      </List>
-      <Select placeholder="Add Column" options={[]} />
-      <Button className="success-button">Apply</Button>
+      <Icon
+        name="close"
+        size="big"
+        className="close-icon"
+        onClick={onCloseHandler}
+      />
+      <span className="heading">{`Customize Columns (${initialColumnsData.length})`}</span>
+      {/* wide mode start */}
+      {wideMode && list && (
+        <div className="lists-container">
+          {list &&
+            list.map(listItems => (
+              <div className="list">
+                {listItems.map(row => (
+                  <div className="list-item">
+                    <span className="item-text">{row.value}</span>
+                  </div>
+                ))}
+              </div>
+            ))}
+        </div>
+      )}
+      {/* wide mode end*/}
+
+      {/* default mode start */}
+      {!wideMode && list && (
+        <div className="list single-list">
+          {list.map(row => (
+            <div className="list-item">
+              <span className="item-text">{row.value}</span>
+            </div>
+          ))}
+        </div>
+      )}
+      {/* default mode end */}
+      <Select
+        className={selectClassName}
+        placeholder="Add New Column"
+        options={[]}
+      />
+      <div className="row-buttons">
+        <Button className="cancel-button" onClick={onCancelHandler}>
+          Cancel
+        </Button>
+        <Button className="success-button" onClick={onApplyHandler}>
+          Apply
+        </Button>
+      </div>
     </Container>
   );
 };

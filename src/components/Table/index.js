@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Checkbox } from 'semantic-ui-react';
 
 import {
@@ -10,15 +10,17 @@ import {
 } from './style';
 import { ArrowReverse, AscendDescend, Toggle } from '../Icon';
 import { mergeClassNames } from '../../utils/styles';
-import {
+
+const CustomTable = ({
   stickyHeaderRow,
   stickyTableData,
   dynamicHeaderRow,
-  dynamicTableData
-} from '../../__mock__';
-
-const CustomTable = () => {
+  dynamicTableData,
+}) => {
   const [selectedRows, selectRow] = useState([]);
+
+  // const currentDynamicRows = dynamicTableData.slice(indexOfFirstTodo, indexOfLastTodo);
+  // const currentStickyRows = stickyTableData.slice(indexOfFirstTodo, indexOfLastTodo);
 
   return (
     <Container>

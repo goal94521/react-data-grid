@@ -4,12 +4,13 @@ import 'semantic-ui-css/semantic.min.css';
 
 import DataGrid from './components/DataGrid';
 import CustomizeColumns from './components/CustomizeColumns';
-import FilterSearch from './components/FilterSearch';
+import { dynamicHeaderRow } from './__mock__';
 
 function App() {
   return (
     <div className="App">
       <DataGrid />
+      {/*<CustomizeColumns initialColumnsData={dynamicHeaderRow} />*/}
     </div>
   );
 }

@@ -2,19 +2,37 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   && {
-    position: relative;
+    position: absolute;
+    top: 0;
+    right: 0;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    width: 350px;
-    padding: 40px 20px 20px 20px;
-    background: #b6c8d6;
+    max-height: 899px;
+    height: 899px;
+    padding: 45px 33px;
+    background: #ecf2f6;
+    box-shadow: -5px 0 14px -2px rgba(0, 0, 0, 0.65);
 
     .heading {
-      font-size: 16px;
-      margin-bottom: 10px;
+      font-size: 20px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 0.85;
+      letter-spacing: normal;
+      color: #6d7c8b;
+      margin-bottom: 37px;
       text-align: left;
-      color: #467599;
+    }
+
+    // wide list mode
+    .lists-container {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      align-items: flex-start;
+      margin-bottom: 25px;
     }
 
     .list {
@@ -22,69 +40,136 @@ export const Container = styled.div`
       overflow: auto;
       flex-direction: column;
       width: 100%;
-      height: 450px;
+      height: 560px;
+      margin: 0 10px;
+
+      :first-of-type {
+        margin-left: 0;
+      }
+
+      :last-of-type {
+        margin-right: 0;
+      }
+
+      &.single-list {
+        padding-right: 33px;
+        margin: 0 0 20px 0;
+      }
+
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      /* Track */
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: #7e92a3;
+      }
+
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: #7e92a3;
+      }
     }
-    
+
     .list-item {
       display: flex;
       align-items: center;
       justify-content: flex-start;
-      min-height: 50px;
-      color: #467599;
+      width: 350px;
+      min-height: 47px;
+      background: #dbe8f1;
+      border-radius: 6px;
+      margin: 5px 0;
+      padding: 0 22px 0 63px;
+
+      :first-child {
+        margin-top: 0;
+      }
+
+      :last-child {
+        margin-bottom: 0;
+      }
+
+      span {
+        font-size: 18px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 0.94;
+        letter-spacing: normal;
+        color: #6d7c8b;
+      }
     }
 
-    .custom-checkbox {
-      width: 22px;
-      height: 22px;
-      border-radius: 3px;
-      border: solid 2px #467599;
-      background-color: transparent;
-      box-sizing: border-box;
+    .custom-select {
+      display: flex;
+      align-items: center;
+      height: 50px;
+      border-radius: 6px;
+      border: solid 2px #dde4eb;
+      background-color: #ffffff;
+      width: 100%;
 
-      input:checked ~ label:before {
-        background-color: #467599;
-        color: #fff;
+      &.wide-mode {
+        width: 359px;
+        align-self: flex-end;
       }
 
-      input:checked ~ label:after {
-        color: #fff;
-      }
-
-      label {
-        color: #467599;
-
-        :before,
-        :after {
-          border: none;
-          background-color: transparent;
-          color: #467599;
+      i {
+        &.dropdown {
+          &.icon {
+            top: 16px;
+          }
         }
       }
     }
-    
-    .item-text {
-      font-size: 16px;
+
+    .row-buttons {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .cancel-button {
+      width: 127px;
+      height: 50px;
+      border-radius: 6px;
+      border: solid 2px #467599;
+      background-color: #ffffff;
+      color: #467599;
+      font-size: 20px;
+      font-weight: 600;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      padding: 0;
+    }
+
+    .success-button {
+      width: 140px;
+      height: 50px;
+      border-radius: 6px;
+      background-color: #80c17d;
+      font-size: 20px;
+      font-weight: 600;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: center;
+      color: #ffffff;
+      padding: 0;
       margin-left: 20px;
     }
-    
-    .success-button {
-      display: flex;
-      text-align: center;
-      justify-content: center;
-      width: 130px;
-      height: 40px;
-      margin-left: auto;
-      background: #80c17d;
-      font-size: 16px;
-      font-weight: 600;
-      color: #fff;
-      margin-top: 15px;
-    }
-    
-    .custom-select {
-      height: 50px;
-    }
-    
+
     .close-icon {
       position: absolute;
       top: 10px;
