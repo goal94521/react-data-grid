@@ -16,6 +16,7 @@ const CustomTable = ({
   stickyTableData,
   dynamicHeaderRow,
   dynamicTableData,
+  handleSort
 }) => {
   const [selectedRows, selectRow] = useState([]);
 
@@ -40,14 +41,16 @@ const CustomTable = ({
               <ArrowReverse />
             </StyledTableCell>
             {stickyHeaderRow.map(headerCellData => {
-              const { width, value } = headerCellData;
+              const { width, value, id } = headerCellData;
 
               return (
                 <StyledTableCell
                   maxWidth={width}
                   className="custom-cell custom-header-table-cell"
                 >
-                  <AscendDescend />
+                  <div className="ascend-icon" onClick={() => handleSort(id)}>
+                    <AscendDescend />
+                  </div>
                   <span>{value}</span>
                 </StyledTableCell>
               );
@@ -122,14 +125,16 @@ const CustomTable = ({
           <div className="custom-table-header">
             <StyledTableRow>
               {dynamicHeaderRow.map(headerCellData => {
-                const { width, value } = headerCellData;
+                const { width, value, id } = headerCellData;
 
                 return (
                   <StyledTableCell
                     maxWidth={width}
                     className="custom-cell custom-header-table-cell"
                   >
-                    <AscendDescend />
+                    <div className="ascend-icon" onClick={() => handleSort(id)}>
+                      <AscendDescend />
+                    </div>
                     <span>{value}</span>
                   </StyledTableCell>
                 );

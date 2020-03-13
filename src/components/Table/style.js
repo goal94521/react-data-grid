@@ -159,6 +159,10 @@ export const StyledTableCell = styled.div`
       svg {
         margin-right: 5px;
       }
+      
+      .ascend-icon {
+        display: inline;
+      }
     }
 
     &.custom-cell-with-icon {

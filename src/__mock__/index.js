@@ -273,7 +273,7 @@ export const dynamicTableData = [
 
 export const stickyTableData = [
   {
-    loadId: { value: '9931AJ2', width: 101, id: 'loadId' }
+    loadId: { value: '1931AJ2', width: 101, id: 'loadId' }
   },
   {
     loadId: { value: '9931AJ2', width: 101, id: 'loadId' }
@@ -345,19 +345,19 @@ export const stickyTableData = [
 // ];
 
 export const dynamicHeaderRow = [
-  { value: 'Status', width: 129 },
-  { value: 'Customer', width: 190 },
-  { value: 'Pick Range', width: 108 },
-  { value: 'Shipper', width: 122 },
-  { value: 'Delivery Range', width: 139 },
-  { value: 'Consignee', width: 140 },
-  { value: 'Stops', width: 88 },
-  { value: 'Weight', width: 89 },
-  { value: 'Equip', width: 81 },
-  { value: 'Mileage', width: 93 },
-  { value: 'Customer Rate', width: 137 },
-  { value: 'Target PT', width: 103 },
-  { value: 'AM', width: 110 }
+  { id: 'status', value: 'Status', width: 129 },
+  { id: 'customer', value: 'Customer', width: 190 },
+  { id: 'pickRange', value: 'Pick Range', width: 108 },
+  { id: 'shipper', value: 'Shipper', width: 122 },
+  { id: 'deliveryRange', value: 'Delivery Range', width: 139 },
+  { id: 'consignee', value: 'Consignee', width: 140 },
+  { id: 'stops', value: 'Stops', width: 88 },
+  { id: 'weight', value: 'Weight', width: 89 },
+  { id: 'equip', value: 'Equip', width: 81 },
+  { id: 'mileage', value: 'Mileage', width: 93 },
+  { id: 'customerRate', value: 'Customer Rate', width: 137 },
+  { id: 'targetPt', value: 'Target PT', width: 103 },
+  { id: 'am', value: 'AM', width: 110 }
 ];
 
-export const stickyHeaderRow = [{ value: 'Load ID #', width: 100 }];
+export const stickyHeaderRow = [{ id: 'loadId', value: 'Load ID #', width: 100 }];
