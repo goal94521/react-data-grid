@@ -1,6 +1,6 @@
 export const dynamicTableData = [
   {
-    status: { value: 'Rate needed', width: 130, id: 'status', status: 'green' },
+    status: { value: 'ERate needed', width: 130, id: 'status', status: 'green' },
     customer: { value: 'Morton International', width: 194, id: 'customer' },
     pickRange: { value: '03/22/2019', width: 111, id: 'pickRange' },
     shipper: { value: 'City Name', width: 126, id: 'shipper' },

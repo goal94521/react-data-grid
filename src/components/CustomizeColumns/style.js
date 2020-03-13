@@ -33,6 +33,7 @@ export const Container = styled.div`
       width: 100%;
       align-items: flex-start;
       margin-bottom: 25px;
+      height: 560px;
     }
 
     .list {
@@ -85,7 +86,7 @@ export const Container = styled.div`
       background: #dbe8f1;
       border-radius: 6px;
       margin: 5px 0;
-      padding: 0 22px 0 63px;
+      padding: 0 22px 0 19px;
 
       :first-child {
         margin-top: 0;
@@ -103,6 +104,13 @@ export const Container = styled.div`
         line-height: 0.94;
         letter-spacing: normal;
         color: #6d7c8b;
+        margin-left: 30px;
+      }
+      
+      .delete-icon {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
       }
     }
 
@@ -172,8 +180,8 @@ export const Container = styled.div`
 
     .close-icon {
       position: absolute;
-      top: 10px;
-      right: 5px;
+      top: 25px;
+      right: 24px;
     }
   }
 `;

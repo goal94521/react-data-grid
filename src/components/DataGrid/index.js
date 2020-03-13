@@ -37,15 +37,8 @@ const settingsDropdownItems = [
 
 const DataGrid = () => {
   const [showDropdown, setShowDropdown] = useState(false);
-  const [openModalId, setOpenModalId] = useState('');
-
-  const handleDropdownPress = dropdownId => {
-    console.log('here');
-    switch (dropdownId) {
-      case 'customizeColumns':
-        setOpenModalId(dropdownId);
-    }
-  };
+  const [showFilters, setShowFilters] = useState(false);
+  const [searchValue, setSearchValue] = useState('');
 
   const [paginationState, setPaginationState] = useState({
     currentPage: 1,
@@ -64,10 +57,6 @@ const DataGrid = () => {
 
   useEffect(() => {
     if (paginationState.currentPage) {
-      console.log(
-        dynamicTableData.slice(indexOfFirstRow, indexOfLastRow),
-        'here1'
-      );
       setCurrentDynamicRows(
         dynamicTableData.slice(indexOfFirstRow, indexOfLastRow)
       );
@@ -77,20 +66,77 @@ const DataGrid = () => {
     }
   }, [paginationState]);
 
+  useEffect(() => {
+    if (searchValue) {
+      const combinedTableData = dynamicTableData.map((dynamicItem, index) => ({
+        ...stickyTableData[index],
+        ...dynamicItem
+      }));
+
+      const filteredCombinedData = combinedTableData.filter(item => {
+        const itemKeys = Object.keys(item);
+
+        let result = false;
+
+        itemKeys.forEach(key => {
+          if (
+            item[key].value
+              .toString()
+              .toLowerCase()
+              .startsWith(searchValue.toLowerCase())
+          ) {
+            result = true;
+          }
+        });
+
+        return result;
+      });
+
+      const filteredStickyData = filteredCombinedData.map(item => ({
+        loadId: { ...item.loadId }
+      }));
+
+      const filteredDynamicData = filteredCombinedData.map(item => ({
+        status: { ...item.status },
+        customer: { ...item.customer },
+        pickRange: { ...item.pickRange },
+        shipper: { ...item.shipper },
+        deliveryRange: { ...item.deliveryRange },
+        consignee: { ...item.consignee },
+        stops: { ...item.stops },
+        weight: { ...item.weight },
+        equip: { ...item.equip },
+        mileage: { ...item.mileage },
+        customerRate: { ...item.customerRate },
+        targetPt: { ...item.targetPt },
+        am: { ...item.am }
+      }));
+
+      setCurrentDynamicRows(
+        filteredDynamicData.slice(indexOfFirstRow, indexOfLastRow)
+      );
+      setCurrentStickyRows(
+        filteredStickyData.slice(indexOfFirstRow, indexOfLastRow)
+      );
+    } else {
+      setCurrentDynamicRows(
+        dynamicTableData.slice(indexOfFirstRow, indexOfLastRow)
+      );
+      setCurrentStickyRows(
+        stickyTableData.slice(indexOfFirstRow, indexOfLastRow)
+      );
+    }
+  }, [searchValue]);
+
   const totalItemsCount = dynamicTableData.length;
   const numberOfItemsPerPage = 15;
-  // var page = 3;
 
   const numberOfPages = Math.floor(
     (totalItemsCount + numberOfItemsPerPage - 1) / numberOfItemsPerPage
   );
-  // var start = (page * numberOfItemsPerPage) - (numberOfItemsPerPage - 1);
-  // var end = Math.min(start + numberOfItemsPerPage - 1, totalItemsCount);
 
   const moveForward = () => {
-    console.log(numberOfPages, 'number of pages');
     if (paginationState.currentPage + 1 <= numberOfPages) {
-      console.log('here');
       setPaginationState(prevState => ({
         ...prevState,
         currentPage: prevState.currentPage + 1
@@ -99,9 +145,7 @@ const DataGrid = () => {
   };
 
   const moveBack = () => {
-    console.log(numberOfPages, 'number of pages2');
     if (paginationState.currentPage !== 1) {
-      console.log('here');
       setPaginationState(prevState => ({
         ...prevState,
         currentPage: prevState.currentPage - 1
@@ -109,28 +153,46 @@ const DataGrid = () => {
     }
   };
 
+  const sortRows = ()
+
+  console.log(currentDynamicRows, 'current d');
+
   return (
     <Container>
       <Header>
-        <span className="secondary-text">3 Customer Ratings</span>
-        <Input icon placeholder="Search..." className="custom-search-input">
+        <span className="secondary-text">{`${dynamicTableData.length} Customer Ratings`}</span>
+        <Input
+          icon
+          placeholder="Search..."
+          className="custom-search-input"
+          value={searchValue}
+          onChange={event => setSearchValue(event.target.value)}
+        >
           <input />
           <Icon name="search" size="large" />
         </Input>
-        <Button icon className="show-filters-button">
+        <Button
+          icon
+          className="show-filters-button"
+          onClick={() => setShowFilters(true)}
+        >
           Show Filters
           <Filter />
         </Button>
         <PaginationContainer>
-          <span className="secondary-text">3-3 of 105 Results</span>
+          <span className="secondary-text">
+            {`${indexOfFirstRow + 1}-${
+              paginationState.currentPage === numberOfPages
+                ? dynamicTableData.length
+                : indexOfLastRow
+            } of ${dynamicTableData.length} Results`}
+          </span>
           <div onClick={() => moveBack()}>
             <LeftProgress />
           </div>
-          <div onClick={() => console.log('1')} style={{ width: 10 }} />
-          <div onClick={() => moveForward()}>
+          <div className="right-arrow" onClick={() => moveForward()}>
             <RightProgress />
           </div>
-          <div style={{ width: 20 }} />
           <Dropdown
             className="settings-dropdown"
             direction="left"
@@ -139,11 +201,7 @@ const DataGrid = () => {
           >
             <Dropdown.Menu className="settings-dropdown-menu">
               {settingsDropdownItems.map(dropdownItem => (
-                <Dropdown.Item
-                  onClick={() => handleDropdownPress(dropdownItem.id)}
-                >
-                  {dropdownItem.title}
-                </Dropdown.Item>
+                <Dropdown.Item>{dropdownItem.title}</Dropdown.Item>
               ))}
             </Dropdown.Menu>
           </Dropdown>
@@ -156,10 +214,11 @@ const DataGrid = () => {
         stickyTableData={currentStickyRows}
       />
       {/* modals start */}
-      {openModalId === 'customizeColumns' && (
+      {showFilters && (
         <CustomizeColumns
           initialColumnsData={[...dynamicHeaderRow, stickyHeaderRow]}
-          onCloseHandler={() => setOpenModalId('')}
+          onCloseHandler={() => setShowFilters(false)}
+          wideMode
         />
       )}
       {/* modals end */}

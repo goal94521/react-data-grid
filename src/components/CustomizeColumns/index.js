@@ -4,6 +4,7 @@ import { Select, Button, Icon } from 'semantic-ui-react';
 import { Container } from './style';
 import { chunkArray } from '../../utils/arrays';
 import { mergeClassNames } from '../../utils/styles';
+import { CloseWindow, DownArrow, GrabHandle, SmallDelete } from '../Icon';
 
 const CustomizeColumns = ({
   wideMode,
@@ -12,7 +13,7 @@ const CustomizeColumns = ({
   onCancelHandler,
   onApplyHandler
 }) => {
-  const [list, setList] = useState(null);
+  const [list, setList] = useState([]);
 
   useEffect(() => {
     if (wideMode) {
@@ -29,12 +30,9 @@ const CustomizeColumns = ({
 
   return (
     <Container>
-      <Icon
-        name="close"
-        size="big"
-        className="close-icon"
-        onClick={onCloseHandler}
-      />
+      <div className="close-icon" onClick={onCloseHandler}>
+        <CloseWindow />
+      </div>
       <span className="heading">{`Customize Columns (${initialColumnsData.length})`}</span>
       {/* wide mode start */}
       {wideMode && list && (
@@ -44,7 +42,11 @@ const CustomizeColumns = ({
               <div className="list">
                 {listItems.map(row => (
                   <div className="list-item">
-                    <span className="item-text">{row.value}</span>
+                      <GrabHandle />
+                      <span className="item-text">{row.value}</span>
+                      <div className="delete-icon">
+                          <SmallDelete />
+                      </div>
                   </div>
                 ))}
               </div>
@@ -58,7 +60,11 @@ const CustomizeColumns = ({
         <div className="list single-list">
           {list.map(row => (
             <div className="list-item">
+              <GrabHandle />
               <span className="item-text">{row.value}</span>
+              <div className="delete-icon">
+                <SmallDelete />
+              </div>
             </div>
           ))}
         </div>
@@ -68,6 +74,11 @@ const CustomizeColumns = ({
         className={selectClassName}
         placeholder="Add New Column"
         options={[]}
+        icon={
+          <div className="down-arrow">
+            <DownArrow />
+          </div>
+        }
       />
       <div className="row-buttons">
         <Button className="cancel-button" onClick={onCancelHandler}>

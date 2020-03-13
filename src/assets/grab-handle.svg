@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="20px" viewBox="0 0 14 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>Drag Drop Icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="36" height="36"></rect>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Draggable-Tag" transform="translate(-19.000000, -14.000000)">
+            <g id="Group-13">
+                <g id="Drag-Drop-Icon" transform="translate(7.000000, 5.500000)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="Background"></g>
+                    <circle id="Oval-Copy" fill="#6D7C8B" fill-rule="evenodd" opacity="0.30203683" mask="url(#mask-2)" cx="14.25" cy="11.25" r="2.25"></circle>
+                    <circle id="Oval-Copy-4" fill="#6D7C8B" fill-rule="evenodd" opacity="0.30203683" mask="url(#mask-2)" cx="23.25" cy="11.25" r="2.25"></circle>
+                    <circle id="Oval-Copy-2" fill="#6D7C8B" fill-rule="evenodd" opacity="0.30203683" mask="url(#mask-2)" cx="14.25" cy="18.75" r="2.25"></circle>
+                    <circle id="Oval-Copy-5" fill="#6D7C8B" fill-rule="evenodd" opacity="0.30203683" mask="url(#mask-2)" cx="23.25" cy="18.75" r="2.25"></circle>
+                    <circle id="Oval-Copy-3" fill="#6D7C8B" fill-rule="evenodd" opacity="0.30203683" mask="url(#mask-2)" cx="14.25" cy="26.25" r="2.25"></circle>
+                    <circle id="Oval-Copy-6" fill="#6D7C8B" fill-rule="evenodd" opacity="0.30203683" mask="url(#mask-2)" cx="23.25" cy="26.25" r="2.25"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

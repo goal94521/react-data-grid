@@ -79,4 +79,8 @@ export const PaginationContainer = styled.div`
   .settings-dropdown-menu {
     width: 200px;
   }
+  
+  .right-arrow {
+    margin: 0 20px 0 20px;
+  }
 `;
