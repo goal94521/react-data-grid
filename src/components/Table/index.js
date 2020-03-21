@@ -19,12 +19,13 @@ const CustomTable = ({
   handleSort
 }) => {
   const [selectedRows, selectRow] = useState([]);
+  const [hoverRowIndex, setHoverRowIndex] = useState(null);
 
   const selectAllRowsHandler = () => {
-    if (selectedRows.length === stickyTableData.length){
-      selectRow([])
+    if (selectedRows.length === stickyTableData.length) {
+      selectRow([]);
     } else {
-      selectRow([...stickyTableData.keys()])
+      selectRow([...stickyTableData.keys()]);
     }
   };
 
@@ -68,7 +69,11 @@ const CustomTable = ({
             const cellsKeys = Object.keys(tableRowData);
 
             return (
-              <StyledTableRow>
+              <StyledTableRow
+                className={hoverRowIndex === index ? 'row-hover' : null}
+                onMouseEnter={() => setHoverRowIndex(index)}
+                onMouseLeave={() => setHoverRowIndex(null)}
+              >
                 <StyledTableCell
                   maxWidth={61}
                   className="custom-cell custom-cell-with-icon first-column"
@@ -104,7 +109,8 @@ const CustomTable = ({
                     id === 'stops' && 'stops',
                     id === 'weight' && 'weight',
                     id === 'mileage' && 'mileage',
-                    id === 'customerRate' && 'customer-rate'
+                    id === 'customerRate' && 'customer-rate',
+                    id === 'customer' && 'customer'
                   );
 
                   const textClassName = mergeClassNames(
@@ -152,7 +158,11 @@ const CustomTable = ({
               const cellsKeys = Object.keys(tableRowData);
 
               return (
-                <StyledTableRow>
+                <StyledTableRow
+                  className={hoverRowIndex === index ? 'row-hover' : null}
+                  onMouseEnter={() => setHoverRowIndex(index)}
+                  onMouseLeave={() => setHoverRowIndex(null)}
+                >
                   {cellsKeys.map(cellKey => {
                     const { value, width, id, status } = tableRowData[cellKey];
 
@@ -163,7 +173,8 @@ const CustomTable = ({
                       id === 'stops' && 'stops',
                       id === 'weight' && 'weight',
                       id === 'mileage' && 'mileage',
-                      id === 'customerRate' && 'customer-rate'
+                      id === 'customerRate' && 'customer-rate',
+                      id === 'customer' && 'customer'
                     );
 
                     const textClassName = mergeClassNames(

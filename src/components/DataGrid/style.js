@@ -48,8 +48,9 @@ export const Header = styled.div`
       font-weight: 600;
       font-stretch: normal;
       font-style: normal;
-      line-height: normal;
+      line-height: 24px;
       letter-spacing: normal;
+      font-family: SourceSansPro, sans-serif;
 
       svg {
         margin-left: 10px;
@@ -75,11 +76,11 @@ export const PaginationContainer = styled.div`
     align-items: center;
     justify-content: center;
   }
-  
+
   .settings-dropdown-menu {
     width: 200px;
   }
-  
+
   .right-arrow {
     margin: 0 20px 0 20px;
   }

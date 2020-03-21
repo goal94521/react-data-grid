@@ -31,16 +31,10 @@ export const StyledTable = styled.div`
     &.dynamic-table {
       border-radius: 0 6px 6px 0;
       flex: 1;
-      
-       //.custom-cell {
-       // width: unset;
-       // min-width: unset;
-       //}
     }
 
     .custom-table-header {
       background: #264259;
-
     }
   }
 `;
@@ -55,17 +49,11 @@ export const StyledTableCell = styled.div`
       border-top: none;
       flex: 1;
       height: 50px;
-      
-      //:last-child {
-      //  width: unset;
-      //  min-width: unset;
-      //  flex: 1;
-      //}
-      
+
       :first-child {
         paddingleft: 0;
       }
-      
+
       &.toggle {
         padding: 15px 0 15px 11px;
       }
@@ -84,7 +72,19 @@ export const StyledTableCell = styled.div`
         text-align: end;
       }
 
+      &.customer {
+        color: #023a52;
+      }
+
       span {
+        font-size: 16px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 18px;
+        letter-spacing: normal;
+        font-family: SourceSansPro, sans-serif;
+
         &.status {
           display: flex;
           justify-content: center;
@@ -147,19 +147,22 @@ export const StyledTableCell = styled.div`
     }
 
     &.custom-header-table-cell {
-      font-size: 16px;
-      font-weight: 600;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: normal;
-      letter-spacing: normal;
-      color: #ffffff;
       padding: 15px 0;
 
-      svg {
-        margin-right: 5px;
+      span {
+        font-size: 16px;
+        font-weight: 600;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #ffffff;
       }
-      
+
+      svg {
+        margin-right: 3px;
+      }
+
       .ascend-icon {
         display: inline;
       }
@@ -194,5 +197,9 @@ export const StyledTableRow = styled.div`
     align-items: center;
     width: 100%;
     max-width: 100%;
+    
+    &.row-hover {
+      background: #f3f3f3;
+    }
   }
 `;

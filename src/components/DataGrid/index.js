@@ -45,7 +45,8 @@ const DataGrid = () => {
     limit: 15
   });
   const [sortColumn, setSortColumn] = useState(null);
-  const [sortDirection, setSortDirection] = useState(null);
+  const [sortedColumns, setSortedColumns] = useState([]);
+  const [sortDirection, setSortDirection] = useState('asc');
 
   const indexOfLastRow = paginationState.currentPage * paginationState.limit;
   const indexOfFirstRow = indexOfLastRow - paginationState.limit;
@@ -156,15 +157,61 @@ const DataGrid = () => {
   };
 
   const handleSort = clickedColumn => {
+    let newSortOrder;
 
-    console.log('hhhh3')
+    const alreadySortedColumn = sortedColumns.find(
+      column => column.columnId === clickedColumn
+    );
+
+    if (alreadySortedColumn) {
+      if (alreadySortedColumn.sortOrder === 'asc') {
+        newSortOrder = 'desc';
+      } else if (alreadySortedColumn.sortOrder === 'desc') {
+        newSortOrder = 'asc';
+      }
+
+      setSortedColumns(prevState =>
+        prevState.map(existingColumn => {
+          if (existingColumn.columnId === clickedColumn) {
+            return {
+              ...existingColumn,
+              sortOrder: newSortOrder
+            };
+          } else {
+            return existingColumn;
+          }
+        })
+      );
+    } else if (!alreadySortedColumn) {
+      newSortOrder = 'asc';
+
+      // add column to sorted columns
+      setSortedColumns(prevState => [
+        ...prevState,
+        { columnId: clickedColumn, sortOrder: newSortOrder }
+      ]);
+    }
 
     const combinedTableData = currentDynamicRows.map((dynamicItem, index) => ({
       ...currentStickyRows[index],
       ...dynamicItem
     }));
 
-    const sortedCombinedData = _.sortBy(combinedTableData, [clickedColumn]);
+    const combinedColumnValues = combinedTableData.map(
+      item => item[clickedColumn]
+    );
+
+    const sortedColumnValues = _.orderBy(
+      combinedColumnValues,
+      ['value'],
+      [newSortOrder]
+    );
+
+    // const sortedCombinedData = _.sortBy(combinedTableData, [clickedColumn]);
+    const sortedCombinedData = combinedTableData.map((tableRow, rowIndex) => ({
+      ...tableRow,
+      [clickedColumn]: sortedColumnValues[rowIndex]
+    }));
 
     const sortedStickyData = sortedCombinedData.map(item => ({
       loadId: { ...item.loadId }
@@ -186,49 +233,54 @@ const DataGrid = () => {
       am: { ...item.am }
     }));
 
-    if (sortColumn !== clickedColumn) {
-      setSortColumn(clickedColumn);
-      setCurrentDynamicRows(
-        sortedDynamicData.slice(indexOfFirstRow, indexOfLastRow)
-      );
-      setCurrentStickyRows(
-        sortedStickyData.slice(indexOfFirstRow, indexOfLastRow)
-      );
-      setSortDirection('ascending');
-
-      return;
-    }
-
-    const stickyData = combinedTableData.map(item => ({
-      loadId: { ...item.loadId }
-    }));
-
-    const dynamicData = combinedTableData.map(item => ({
-      status: { ...item.status },
-      customer: { ...item.customer },
-      pickRange: { ...item.pickRange },
-      shipper: { ...item.shipper },
-      deliveryRange: { ...item.deliveryRange },
-      consignee: { ...item.consignee },
-      stops: { ...item.stops },
-      weight: { ...item.weight },
-      equip: { ...item.equip },
-      mileage: { ...item.mileage },
-      customerRate: { ...item.customerRate },
-      targetPt: { ...item.targetPt },
-      am: { ...item.am }
-    }));
-
     setCurrentDynamicRows(
-      dynamicData.reverse().slice(indexOfFirstRow, indexOfLastRow)
+      sortedDynamicData.slice(indexOfFirstRow, indexOfLastRow)
     );
     setCurrentStickyRows(
-      stickyData.reverse().slice(indexOfFirstRow, indexOfLastRow)
+      sortedStickyData.slice(indexOfFirstRow, indexOfLastRow)
     );
-    setSortDirection('ascending' ? 'descending' : 'ascending');
-  };
 
-  console.log(currentDynamicRows, 'current d');
+    // if (sortColumn !== clickedColumn) {
+    //   setSortColumn(clickedColumn);
+    //   setCurrentDynamicRows(
+    //     sortedDynamicData.slice(indexOfFirstRow, indexOfLastRow)
+    //   );
+    //   setCurrentStickyRows(
+    //     sortedStickyData.slice(indexOfFirstRow, indexOfLastRow)
+    //   );
+    //   setSortDirection('ascending');
+    //
+    //   return;
+    // }
+    //
+    // const stickyData = combinedTableData.map(item => ({
+    //   loadId: { ...item.loadId }
+    // }));
+    //
+    // const dynamicData = combinedTableData.map(item => ({
+    //   status: { ...item.status },
+    //   customer: { ...item.customer },
+    //   pickRange: { ...item.pickRange },
+    //   shipper: { ...item.shipper },
+    //   deliveryRange: { ...item.deliveryRange },
+    //   consignee: { ...item.consignee },
+    //   stops: { ...item.stops },
+    //   weight: { ...item.weight },
+    //   equip: { ...item.equip },
+    //   mileage: { ...item.mileage },
+    //   customerRate: { ...item.customerRate },
+    //   targetPt: { ...item.targetPt },
+    //   am: { ...item.am }
+    // }));
+    //
+    // setCurrentDynamicRows(
+    //   dynamicData.reverse().slice(indexOfFirstRow, indexOfLastRow)
+    // );
+    // setCurrentStickyRows(
+    //   stickyData.reverse().slice(indexOfFirstRow, indexOfLastRow)
+    // );
+    // setSortDirection('ascending' ? 'descending' : 'ascending');
+  };
 
   return (
     <Container>
@@ -260,10 +312,14 @@ const DataGrid = () => {
                 : indexOfLastRow
             } of ${dynamicTableData.length} Results`}
           </span>
-          <div onClick={() => moveBack()}>
+          <div style={{ marginTop: 4 }} onClick={() => moveBack()}>
             <LeftProgress />
           </div>
-          <div className="right-arrow" onClick={() => moveForward()}>
+          <div
+            style={{ marginTop: 4 }}
+            className="right-arrow"
+            onClick={() => moveForward()}
+          >
             <RightProgress />
           </div>
           <Dropdown
