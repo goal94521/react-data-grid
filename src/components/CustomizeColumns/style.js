@@ -3,8 +3,8 @@ import styled from 'styled-components';
 export const Container = styled.div`
   && {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: ${props => props.top}px;
+    right: ${props => props.right - 3}px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -15,6 +15,7 @@ export const Container = styled.div`
     box-shadow: -5px 0 14px -2px rgba(0, 0, 0, 0.65);
 
     .heading {
+      display: block;
       font-size: 20px;
       font-weight: normal;
       font-stretch: normal;
@@ -106,7 +107,7 @@ export const Container = styled.div`
         color: #6d7c8b;
         margin-left: 30px;
       }
-      
+
       .delete-icon {
         margin-left: auto;
         display: flex;

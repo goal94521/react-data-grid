@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Input, Button, Icon, Dropdown } from 'semantic-ui-react';
+import React, { useEffect, useState, useRef } from 'react';
+import { Input, Button, Icon, Transition } from 'semantic-ui-react';
 import _ from 'lodash';
 
 import CustomTable from '../Table';
@@ -57,6 +57,8 @@ const DataGrid = () => {
   const [currentStickyRows, setCurrentStickyRows] = useState(
     dynamicTableData.slice(indexOfFirstRow, indexOfLastRow)
   );
+
+  const containerRef = useRef(null);
 
   useEffect(() => {
     if (paginationState.currentPage) {
@@ -156,6 +158,93 @@ const DataGrid = () => {
     }
   };
 
+  // sort for specific column
+  // const handleSort = clickedColumn => {
+  //   let newSortOrder;
+  //
+  //   const alreadySortedColumn = sortedColumns.find(
+  //     column => column.columnId === clickedColumn
+  //   );
+  //
+  //   if (alreadySortedColumn) {
+  //     if (alreadySortedColumn.sortOrder === 'asc') {
+  //       newSortOrder = 'desc';
+  //     } else if (alreadySortedColumn.sortOrder === 'desc') {
+  //       newSortOrder = 'asc';
+  //     }
+  //
+  //     setSortedColumns(prevState =>
+  //       prevState.map(existingColumn => {
+  //         if (existingColumn.columnId === clickedColumn) {
+  //           return {
+  //             ...existingColumn,
+  //             sortOrder: newSortOrder
+  //           };
+  //         } else {
+  //           return existingColumn;
+  //         }
+  //       })
+  //     );
+  //   } else if (!alreadySortedColumn) {
+  //     newSortOrder = 'asc';
+  //
+  //     // add column to sorted columns
+  //     setSortedColumns(prevState => [
+  //       ...prevState,
+  //       { columnId: clickedColumn, sortOrder: newSortOrder }
+  //     ]);
+  //   }
+  //
+  //   const combinedTableData = currentDynamicRows.map((dynamicItem, index) => ({
+  //     ...currentStickyRows[index],
+  //     ...dynamicItem
+  //   }));
+  //
+  //   const combinedColumnValues = combinedTableData.map(
+  //     item => item[clickedColumn]
+  //   );
+  //
+  //   const sortedColumnValues = _.orderBy(
+  //     combinedColumnValues,
+  //     ['value'],
+  //     [newSortOrder]
+  //   );
+  //
+  //   // const sortedCombinedData = _.sortBy(combinedTableData, [clickedColumn]);
+  //   const sortedCombinedData = combinedTableData.map((tableRow, rowIndex) => ({
+  //     ...tableRow,
+  //     [clickedColumn]: sortedColumnValues[rowIndex]
+  //   }));
+  //
+  //   const sortedStickyData = sortedCombinedData.map(item => ({
+  //     loadId: { ...item.loadId }
+  //   }));
+  //
+  //   const sortedDynamicData = sortedCombinedData.map(item => ({
+  //     status: { ...item.status },
+  //     customer: { ...item.customer },
+  //     pickRange: { ...item.pickRange },
+  //     shipper: { ...item.shipper },
+  //     deliveryRange: { ...item.deliveryRange },
+  //     consignee: { ...item.consignee },
+  //     stops: { ...item.stops },
+  //     weight: { ...item.weight },
+  //     equip: { ...item.equip },
+  //     mileage: { ...item.mileage },
+  //     customerRate: { ...item.customerRate },
+  //     targetPt: { ...item.targetPt },
+  //     am: { ...item.am }
+  //   }));
+  //
+  //   setCurrentDynamicRows(
+  //     sortedDynamicData.slice(indexOfFirstRow, indexOfLastRow)
+  //   );
+  //   setCurrentStickyRows(
+  //     sortedStickyData.slice(indexOfFirstRow, indexOfLastRow)
+  //   );
+  // };
+
+  // sort for entire row
   const handleSort = clickedColumn => {
     let newSortOrder;
 
@@ -197,21 +286,11 @@ const DataGrid = () => {
       ...dynamicItem
     }));
 
-    const combinedColumnValues = combinedTableData.map(
-      item => item[clickedColumn]
-    );
-
-    const sortedColumnValues = _.orderBy(
-      combinedColumnValues,
-      ['value'],
+    const sortedCombinedData = _.orderBy(
+      combinedTableData,
+      [`${clickedColumn}.value`],
       [newSortOrder]
     );
-
-    // const sortedCombinedData = _.sortBy(combinedTableData, [clickedColumn]);
-    const sortedCombinedData = combinedTableData.map((tableRow, rowIndex) => ({
-      ...tableRow,
-      [clickedColumn]: sortedColumnValues[rowIndex]
-    }));
 
     const sortedStickyData = sortedCombinedData.map(item => ({
       loadId: { ...item.loadId }
@@ -239,51 +318,10 @@ const DataGrid = () => {
     setCurrentStickyRows(
       sortedStickyData.slice(indexOfFirstRow, indexOfLastRow)
     );
-
-    // if (sortColumn !== clickedColumn) {
-    //   setSortColumn(clickedColumn);
-    //   setCurrentDynamicRows(
-    //     sortedDynamicData.slice(indexOfFirstRow, indexOfLastRow)
-    //   );
-    //   setCurrentStickyRows(
-    //     sortedStickyData.slice(indexOfFirstRow, indexOfLastRow)
-    //   );
-    //   setSortDirection('ascending');
-    //
-    //   return;
-    // }
-    //
-    // const stickyData = combinedTableData.map(item => ({
-    //   loadId: { ...item.loadId }
-    // }));
-    //
-    // const dynamicData = combinedTableData.map(item => ({
-    //   status: { ...item.status },
-    //   customer: { ...item.customer },
-    //   pickRange: { ...item.pickRange },
-    //   shipper: { ...item.shipper },
-    //   deliveryRange: { ...item.deliveryRange },
-    //   consignee: { ...item.consignee },
-    //   stops: { ...item.stops },
-    //   weight: { ...item.weight },
-    //   equip: { ...item.equip },
-    //   mileage: { ...item.mileage },
-    //   customerRate: { ...item.customerRate },
-    //   targetPt: { ...item.targetPt },
-    //   am: { ...item.am }
-    // }));
-    //
-    // setCurrentDynamicRows(
-    //   dynamicData.reverse().slice(indexOfFirstRow, indexOfLastRow)
-    // );
-    // setCurrentStickyRows(
-    //   stickyData.reverse().slice(indexOfFirstRow, indexOfLastRow)
-    // );
-    // setSortDirection('ascending' ? 'descending' : 'ascending');
   };
 
   return (
-    <Container>
+    <Container ref={containerRef}>
       <Header>
         <span className="secondary-text">{`${dynamicTableData.length} Customer Ratings`}</span>
         <Input
@@ -299,9 +337,11 @@ const DataGrid = () => {
         <Button
           icon
           className="show-filters-button"
-          onClick={() => setShowFilters(true)}
+          onClick={() => {
+            setShowFilters(prevState => !prevState);
+          }}
         >
-          Show Filters
+          {showFilters ? 'Hide Filters' : 'Show Filters'}
           <Filter />
         </Button>
         <PaginationContainer>
@@ -322,18 +362,28 @@ const DataGrid = () => {
           >
             <RightProgress />
           </div>
-          <Dropdown
-            className="settings-dropdown"
-            direction="left"
+          <div
+            className="settings-icon"
             onClick={() => setShowDropdown(!showDropdown)}
-            icon={<Settings />}
           >
-            <Dropdown.Menu className="settings-dropdown-menu">
+            <Settings />
+          </div>
+          <Transition
+            visible={showDropdown}
+            animation="slide down"
+            duration={400}
+          >
+            <div className="settings-dropdown">
               {settingsDropdownItems.map(dropdownItem => (
-                <Dropdown.Item>{dropdownItem.title}</Dropdown.Item>
+                <div
+                  className="settings-dropdown-item"
+                  onClick={() => setShowDropdown(!showDropdown)}
+                >
+                  {dropdownItem.title}
+                </div>
               ))}
-            </Dropdown.Menu>
-          </Dropdown>
+            </div>
+          </Transition>
         </PaginationContainer>
       </Header>
       <CustomTable
@@ -344,13 +394,15 @@ const DataGrid = () => {
         handleSort={id => handleSort(id)}
       />
       {/* modals start */}
-      {showFilters && (
-        <CustomizeColumns
-          initialColumnsData={[...dynamicHeaderRow, stickyHeaderRow]}
-          onCloseHandler={() => setShowFilters(false)}
-          wideMode
-        />
-      )}
+      <CustomizeColumns
+        containerRef={containerRef}
+        visible={showFilters}
+        initialColumnsData={[...dynamicHeaderRow, stickyHeaderRow]}
+        onCloseHandler={() => {
+          setShowFilters(prevState => !prevState);
+        }}
+        wideMode
+      />
       {/* modals end */}
     </Container>
   );
